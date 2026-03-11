@@ -92,11 +92,15 @@ for i in range(M + 1):
 print(f"\nThe Mean arrival rate is {mean:.3f}")
 print(f"The Variance of arrival from feeder is {var:.3f}")
 print(f"The Standard deviation of arrival from feeder is {SD:.3f}")
+
+
+
 ```
 
 
 
 # Output : 
+
 
 
 <img width="1187" height="745" alt="image" src="https://github.com/user-attachments/assets/69f0d4f5-8436-4c0f-80a5-e039d9fda217" />
