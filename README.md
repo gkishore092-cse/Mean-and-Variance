@@ -49,15 +49,15 @@ It shows the distance of a random variable from its mean. It is calcualted as
 
 # Program :
 
-```
+ ```
 import numpy as np
 
 # Input: Enter the number of arrivals separated by space
 L = [int(i) for i in input("Enter arrival data: ").split()]
+
 N = len(L)
 M = max(L)
-
-x = []
+X = []
 f = []
 
 # Counting frequency of each arrival
@@ -67,7 +67,7 @@ for i in range(M + 1):
         if L[j] == i:
             c += 1
     f.append(c)
-    x.append(i)   
+    X.append(i)
 
 sf = np.sum(f)
 
@@ -75,16 +75,22 @@ sf = np.sum(f)
 p = [f[i] / sf for i in range(M + 1)]
 
 # Mean of arrival (expected value)
-mean = np.inner(x, p)
+mean = np.inner(X, p)
 
 # Second moment (E[X²])
-EX2 = np.inner(np.square(x), p)
+EX2 = np.inner(np.square(X), p)
 
 # Variance and standard deviation
 var = EX2 - mean**2
 SD = np.sqrt(var)
 
-print(f"The Mean arrival rate is {mean:.3f}")
+# Printing X and p(x)
+print("\nX\tp(x)")
+for i in range(M + 1):
+    if f[i] > 0:   # Only print arrivals that actually occurred
+        print(f"{X[i]}\t{p[i]:.3f}")
+
+print(f"\nThe Mean arrival rate is {mean:.3f}")
 print(f"The Variance of arrival from feeder is {var:.3f}")
 print(f"The Standard deviation of arrival from feeder is {SD:.3f}")
 ```
@@ -94,8 +100,8 @@ print(f"The Standard deviation of arrival from feeder is {SD:.3f}")
 # Output : 
 
 
+<img width="1187" height="745" alt="image" src="https://github.com/user-attachments/assets/69f0d4f5-8436-4c0f-80a5-e039d9fda217" />
 
-<img width="650" height="127" alt="image" src="https://github.com/user-attachments/assets/82b86507-98dd-4ded-b35b-0923f8d11e83" />
 
 
 
